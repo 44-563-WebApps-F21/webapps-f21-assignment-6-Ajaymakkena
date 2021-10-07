@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+ <title>mathCaluculation</title>
+<body>
+
+<h2>ajay makkena Computes</h2>
+
+<form>
+    <label for="get_base">Enter a base</label>
+    <input type ="number" id="base" name="get_base" value=10> <br>
+
+    <label for="get_exp">Enter an exponent</label>
+    <input type ="number" id="expo" name="exponent" value=2> <br>
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+
+<p id="result"> </p>
+
+<script> 
+
+function powers(){
+    result=""
+    console.log("Getting form values")
+    bas = document.getElementById("base").value
+    exp = document.getElementById("expo").value  
+    
+    for(let i=1;i<=exp;i++){
+        result=result+" "+Math.pow(bas,i)
+
+    }
+    
+    out = document.getElementById("result")
+    out.innerHTML = result
+}
+
+</script>
+<form>
+    <input type="radio" onclick="processRadio()" id="add" name="topping"   
+      value="plus">
+    <label for="+">+</label></br>
+  
+    <input type="radio" onclick="processRadio()" id="subtract" name="topping" 
+       value="minus">
+    <label for="-">-</label></br>
+  
+    <input type="radio" onclick="processRadio()" id="multiply" name="topping"   
+       value="times">
+    <label for="">*</label></br>
+
+    <input type="radio" onclick="processRadio()" id="divide" name="topping"   
+       value="divide">
+    <label for="/">/</label></br>
+
+    
+  </form>
+  <p id="res"></p>
+  <script>
+      function processRadio(){
+      bas = document.getElementById("base").value
+      exp = document.getElementById("expo").value
+      ou = document.getElementById("res")
+      if(document.getElementById("add").checked){
+          let z=+bas+ +exp;
+          ou.innerHTML=z
+      }
+      else if(document.getElementById("subtract").checked){
+          ou.innerHTML=bas-exp
+      }
+      else if(document.getElementById("multiply").checked){
+          ou.innerHTML=bas*exp
+      }
+      else if(document.getElementById("divide").checked){
+          ou.innerHTML=bas/exp
+      }
+    }
+
+      
+  </script>
+
+</body>
+</html>
