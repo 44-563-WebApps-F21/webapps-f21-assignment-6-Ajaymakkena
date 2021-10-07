@@ -1,20 +1,20 @@
+</body>
+</html>
 <!DOCTYPE html>
 <html>
  
 <body>
-    <title>Pass phrase by ajay makkena</title>
-    <h1>Pass phrase by ajay makkena</h1>
-
+<h1>Pass Phrase by Ajay Makkena</h1>
 <h2>Getting input</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="secret_phrase">Enter the secret phrase?</label>
+    <input type ="password" id="secret_phrase" name="secret_phrase" min=10 max=50 step=2 value="Let me in"> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="check">Enter a phrase</label>
+    <input type ="text" id="check" name="check" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
 </form>
 
 
@@ -22,20 +22,55 @@
 
 <script> 
 
-function resolveForm (){
+function processPhrase(){
+    let correct=0;
+    let wrong =0;
     console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    pass = document.getElementById("secret_phrase").value
+    phrase = document.getElementById("check").value
+    confirmed = confirm("Are these the values? "+pass+" and "+phrase)
+    if(pass==phrase){
+        correct=correct+1
+        alert("Access allowed")
+
+    }
+    else{
+        wrong=wrong+1
+        alert("Access denied")
+    }
     
     out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
+    out.innerHTML = "<h3>correct</h3>"+correct+"<br>"+"<h3>wrong</h3>"+wrong
 }
 </script>
+</script>
+<div class="container">
+    <img src="albatross.jpg" height="200" width="200" onclick="newImage()" id="img" alt="image">
+    <script>
+        var usingImage=1
+        function newImage(){
+            out=document.getElementById("img")
+            switch(usingImage){
+                case 1:
+                    out.src="albatross.jpg"
+                    usingImage=usingImage+1
+                    break;
+                case 2:
+                    out.src="kangaroo.jpg"
+                    usingImage=usingImage+1
+                    break;
+                case 3:
+                    out.src="monkey.jpg"
+                    usingImage=1
+                    break;
+                default:
+                    out.src="monkey.jpg"                
+            }
+            
+        }
+    </script>
+
+
 
 </body>
-</html> 
+</html>  
